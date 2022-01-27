@@ -1,5 +1,6 @@
-import React ,{ useState , useEffect } from 'react'
-import { View ,Button } from 'react-native';
+import React ,{ useState  } from 'react'
+import { View ,Button  } from 'react-native';
+import { Container } from './Phone';
 
 export default function Phone_storage() {
 
@@ -17,13 +18,9 @@ if(tit){
    
     const [state, setstate] = useState('')
     const [state1, setstate1] = useState(getList())
-    const [title, settitle] = useState('')
     
 
-    function add(){
-        localStorage.setItem("title", title)
-        settitle('')
-    }
+
     function localstre(){
         if(state == ""){
             return 
@@ -38,7 +35,7 @@ if(tit){
 
     return (
         
-        <View style={{flex:1, justifyContent:"center" , alignItems : "center" ,paddongTop : '15px'}}>           
+        <Container>           
     
             <h1>{getItem}</h1>
 
@@ -50,13 +47,7 @@ if(tit){
 
         
                
-<input
-placeholder='Enter your todo title'
-value={title}
-onChange={e => settitle(e.target.value)}
-/>
 
-<button onClick={add}>Add</button>
 
 <input
 value={state}
@@ -64,12 +55,10 @@ placeholder='Enter your todo lists'
 
 onChange={e => setstate(e.target.value)}
 />
+<br/>
 
-<Button
-title={"save "}
-onPress={localstre}
-color={"pink"}
-/>
-        </View>
+<button onClick={localstre}>Save you Todo List</button>
+        </Container>
     )
 }
+
