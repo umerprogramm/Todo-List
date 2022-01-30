@@ -5,18 +5,19 @@ import { Tittle } from './Tittle';
 
 
 export default function Title() {
+  const get = localStorage.getItem("title")
   const [title , settitle] = useState('')
   const [state , setstate] = useState('')
   const Next = ()=>{
-
-    setstate(title)
+   setstate(title)
+    localStorage.setItem("title",title)
 
 
   }
   
   return (
     <>
-    {state!==""?<Phone_storage/>:
+    {get!=undefined?<Phone_storage/>:
 
     
     <Tittle>
